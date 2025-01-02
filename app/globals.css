@@ -2,20 +2,286 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  @apply font-poppins text-[#0E0F21];
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  @layer utilities{
+    /* .motto{
+      background-image: linear-gradient(#4E2603, #BF6C00, #F7B806);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    } */
+     .ace-logo{
+      font-size: 140px;
+      color: transparent;
+      -webkit-text-stroke: 1px gray;
+      @apply font-Sacramento md:text-[15.625rem]
+     }
+    .hero-image-section{
+      @apply w-full bg-[#ccac53] px-3 py-2 rounded-lg
+    }
+    .hero-container{
+      /* background-image: linear-gradient(to right, #312B2B 50%,#E9AB0B); */
+      @apply w-full bg-[#312B2B] p-2 md:px-5 lg:flex lg:flex-col lg:items-center
+    }
+    .image-container{
+      @apply w-full p-2 relative lg:-top-20
+    }
+    .image-container::before{
+      content: attr(data-text);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: transparent;
+      -webkit-text-stroke: 1px #dddddd3d;
+      font-size: 130px;
+      @apply md:text-[240px] lg:text-[220px]
+    }
+    .about-container{
+      @apply w-full max-w-5xl p-2 lg:grid lg:grid-cols-2 lg:gap-12
+    }
+    .about-header{
+      @apply font-jost font-semibold text-5xl text-[#312B2B] uppercase md:text-7xl lg:text-6xl
+    }
+    .about-header span{
+      -webkit-text-stroke: 1px #BF6C00;
+       @apply text-transparent
+    }
+    .about-container p#p-subheader{
+      @apply uppercase text-2xl text-acetext my-2 md:text-4xl lg:text-xl
+    }
+    .about-container p.p-content{
+      @apply text-base text-[#0E0F21] md:text-xl lg:text-base
+    }
+    .about-image{
+      @apply relative w-full h-[25rem] bg-[#F7B806]/40 rounded-md p-4 my-4 md:h-[45rem] lg:h-[28rem]
+    }
+    /* .about-image::before{
+      position:absolute;
+      content: "";
+      width: 400px;
+      height: 400px;
+      background-image: radial-gradient(circle, black 1px, transparent 1px );
+      background-size: 10px 10px;
+      z-index: 6px;
+    } */
+    .about-image .image-wrapper{
+      @apply bg-[#F7B806]/20 w-full h-full grid grid-cols-2 gap-2 p-4 shadow-xl shadow-[#F7B806]/20
+    }
+    .img-1-wrapper{
+      @apply w-full h-full relative overflow-hidden rounded-lg
+    }
+    .btn-style{
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      overflow: clip;
+      @apply text-[#BF6C00] my-3 h-14 w-2/3 bg-transparent border border-solid border-[#BF6C00] rounded-full hover:shadow-2xl hover:shadow-[#F7B806] transition-all delay-300 hover:bg-transparent md:h-20 md:w-1/2 md:text-2xl lg:h-14 lg:text-base
+    }
+    .btn-hover-bg{
+      position: absolute;
+      left: 10px;
+      width: 1rem;
+      height: 1rem;
+      @apply rounded-full bg-[#0E0F21]
+    }
+    .service-container{
+      transform: skewY(-5deg);
+      transform-style: preserve-3d;
+      @apply w-full bg-slate-50 my-6 px-2 py-8 lg:flex lg:flex-col lg:items-center lg:justify-center lg:py-16
+    }
+    .service-wrapper{
+      transform: skewY(5deg);
+      @apply w-full max-w-5xl my-8
+    }
+    .gen-container{
+      @apply w-full px-2 py-10 my-4 md:px-4 lg:flex lg:flex-col lg:items-center lg:justify-center
+    }
+    .gen-wrapper{
+      @apply  w-full max-w-5xl md:px-2
+    }
+    .featured-content{
+      @apply w-full p-2 my-6 lg:grid lg:grid-cols-3 lg:gap-4
+    }
+    .craft-style{
+      @apply bg-[#CD7F32]/50 shadow-2xl shadow-[#CD7F32]/70
+    }
+    .craft-style div{
+      @apply bg-[#CD7F32]/20
+    }
+    .trust-style{
+      @apply bg-blue-400/80 shadow-2xl shadow-blue-400/70
+    }
+    .trust-style div{
+      @apply bg-blue-400
+    }
+    .trust-style div .icon{
+      @apply text-blue-500
+    }
+    .trust-style p.title, .trust-style p.desc{
+      @apply text-blue-600
+    }
+    .design-style{
+      @apply bg-green-400/60 shadow-2xl shadow-green-400/70
+    }
+    .design-style div{
+      @apply bg-green-400
+    }
+    .design-style div .icon{
+      @apply text-green-700
+    }
+    .design-style p.title, .design-style p.desc{
+      @apply text-green-700
+    }
+    .practice-style{
+      @apply bg-orange-500/70 shadow-2xl shadow-orange-500/70
+    }
+    .practice-style div{
+      @apply bg-orange-400
+    }
+    .practice-style div .icon{
+      @apply text-orange-800
+    }
+    .practice-style p.title, .practice-style p.desc{
+      @apply text-orange-800
+    }
+    .approach-style{
+      @apply bg-pink-300 shadow-2xl shadow-pink-600/70
+    }
+    .approach-style div{
+      @apply bg-pink-400
+    }
+    .approach-style div .icon{
+      @apply text-pink-700
+    }
+    .approach-style p.title, .approach-style p.desc{
+      @apply text-pink-700
+    }
+    .comfort-style{
+      @apply bg-purple-800/50 shadow-2xl shadow-purple-600/70
+    }
+    .comfort-style div{
+      @apply bg-purple-500
+    }
+    .comfort-style div .icon{
+      @apply text-purple-700
+    }
+    .comfort-style p.title, .comfort-style p.desc{
+      @apply text-purple-900
+    }
+    .perspective{
+      perspective: 1200px;
+    }
+    .hover-effect{
+      transition: transform .8s ease-in;
+    }
+    .perspective:hover .hover-effect{
+      transform-style: preserve-3d;
+      transform: translate(-10%);
+      transform: rotateY(-40deg);
+    }
+    .abt-footer-container{
+      position: relative;
+    }
+    .footer-logo-p{
+      @apply my-4 w-full h-[25rem] flex flex-col items-center justify-center lg:-mt-20
+    }
+    .footer-logo-p p{
+      font-size: 160px;
+      color: transparent;
+      -webkit-text-stroke: 1px gray;
+      @apply font-Sacramento md:text-[200px] lg:text-[110px]
+    }
+    .footer-ul li.title, p.title{
+      @apply text-3xl mb-4 md:text-4xl lg:text-2xl text-[gray]
+    }
+    .footer-ul li{
+      color: gray;
+      @apply my-2 text-lg md:text-2xl lg:text-base
+    }
+    li a.footer-contact{
+      @apply flex flex-row items-center gap-2
+    }
+    .nav-items{
+      @apply lg:flex lg:flex-row lg:items-center lg:justify-between lg:gap-2 lg:w-[600px] lg:px-8 
+    }
+    .nav-items li{
+       position: relative;
+       @apply text-acetext my-7 text-xl md:text-2xl lg:text-base
+    }
+    .nav-items li:hover::before{
+      position: absolute;
+      content: "";
+      top: 120%;
+      width: 40px;
+      height: 2px;
+      background-color: #bf6c00;
+    }
+    .nav-logo{
+      color: transparent;
+      -webkit-text-stroke: 2px #bf6c00;
+      @apply text-4xl font-Sacramento md:text-5xl
+    }
+  }
 }
