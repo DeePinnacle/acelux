@@ -20,7 +20,7 @@ const AceLux = () => {
     const timer = setTimeout(() => {
       setCount(count + 1);
     }, 1000);
-    if (count === 14) {
+    if (count === 5) {
       clearInterval(timer);
     }
   };
@@ -28,7 +28,7 @@ const AceLux = () => {
   handleCountTimer();
   return (
     <>
-      {count <= 13 ? (
+      {count <= 4 ? (
         <SplashScreen />
       ) : (
         <>
