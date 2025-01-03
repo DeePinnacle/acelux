@@ -67,11 +67,11 @@ const Sofia = localFont({
   weight: "100 900"
 })
 
-// const jost = localFont({
-//   src: "./fonts/jostFont.ttf",
-//   variable: "--font-jost",
-//   weight: "100 900"
-// })
+const jost = localFont({
+  src: "./fonts/JostFont.ttf",
+  variable: "--font-jost",
+  weight: "100 900"
+})
 
 const poppins = localFont({
   src: "./fonts/Poppins.ttf",
